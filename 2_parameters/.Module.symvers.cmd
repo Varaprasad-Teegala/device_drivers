@@ -1,1 +1,0 @@
-savedcmd_/home/rinzler/github/device_drivers/2_parameters/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rinzler/github/device_drivers/2_parameters/Module.symvers -T /home/rinzler/github/device_drivers/2_parameters/modules.order -i Module.symvers -e 
