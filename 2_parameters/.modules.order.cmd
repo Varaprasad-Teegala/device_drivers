@@ -1,0 +1,1 @@
+savedcmd_/home/rinzler/github/device_drivers/2_parameters/modules.order := {   echo /home/rinzler/github/device_drivers/2_parameters/mod_parameters.o; :; } > /home/rinzler/github/device_drivers/2_parameters/modules.order
