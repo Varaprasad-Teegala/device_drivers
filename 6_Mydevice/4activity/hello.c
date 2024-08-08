@@ -19,7 +19,7 @@ char s[1024];
 
 int main()
 {
-	int fd = open("/dev/my_fork",O_RDWR);
+	int fd = open("/dev/my_print",O_RDWR);
 	if(fd < 0 )
 	{
 		perror("Cant open the char file\n");

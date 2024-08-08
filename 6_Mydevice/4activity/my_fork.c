@@ -3,6 +3,7 @@
 #include <linux/kernel.h>
 #include <linux/moduleparam.h>
 #include <linux/fs.h>
+#include <linux/string.h>
 
 #define MAX_LENGTH 4096
 
@@ -13,6 +14,7 @@ MODULE_DESCRIPTION("Device template");
 static char *char_device_buf;
 int nbytes = 0;
 int t;
+char temp[1024] = "kernel Buffer is empty";
 
 int my_open(struct inode *inode , struct file *file)
 {
@@ -23,10 +25,9 @@ int my_open(struct inode *inode , struct file *file)
 ssize_t my_read (struct file *file, char __user *buf, size_t lbuf, loff_t *ppos)
 {
 	if(char_device_buf[0] == '\0')
-		t = copy_to_user (buf,"kernel Buffer is empty",23);
+		t = copy_to_user (buf,"kernel Buffer is empty",strlen(temp));
 	else
-	{
-		*ppos = 0;
+	{		*ppos = 0;
         	int nbytes = lbuf - copy_to_user (buf, char_device_buf + *ppos, lbuf);
         	*ppos += nbytes;
         	printk (KERN_INFO "\n Reading nbytes=%d, pos=%d \n",nbytes, (int)*ppos);
