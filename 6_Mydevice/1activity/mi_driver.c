@@ -102,7 +102,7 @@ static struct file_operations char_dev_fops =
  
 static int __init char_dev_init(void)
 {
-	int ret;
+/*	int ret;
 
 	if (alloc_chrdev_region (&mydev, 0, count, CHAR_DEV_NAME) < 0)
         {  //1
@@ -139,17 +139,25 @@ static int __init char_dev_init(void)
 
 	memset(temp,'\0',1024);
 	memset(char_device_buf,'\0',4096);
+*/
+	register_chrdev(60,"my_print",&char_dev_fops);
+	char_device_buf =(char *)kmalloc(MAX_LENGTH,GFP_KERNEL);
+        memset(char_device_buf,'\0',4096);
 
 	return 0;
 }
  
 static void __exit char_dev_exit(void)
 { 
-	cdev_del(vara_dev); //5
+/*	cdev_del(vara_dev); //5
         class_destroy(vara_class);
 	unregister_chrdev_region(mydev,1); //6
 	kfree(char_device_buf);
 	printk(KERN_INFO "\n Driver unregistered \n");
+*/
+	unregister_chrdev(60,"my_print");
+	kfree(char_device_buf);
+	printk("Device is unregistered\n");
 }
  
 module_init(char_dev_init);

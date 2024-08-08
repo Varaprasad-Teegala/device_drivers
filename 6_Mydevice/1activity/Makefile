@@ -20,7 +20,7 @@
 	#rm -rf $(wildcard *.o *.ko mo* Mo* *.mod.c )
 
 
-obj-m := mi_driver.o
+obj-m := my_code.o
 
 all :
 	make -C /lib/modules/`uname -r`/build M=`pwd` modules

@@ -20,7 +20,7 @@ int l=0;
 
 int main()
 {
-	int fd = open("/dev/psd_dev",O_RDWR);
+	int fd = open("/dev/my_print",O_RDWR);
 	if(fd < 0 )
 	{
 		perror("Cant open the char file\n");
@@ -40,7 +40,7 @@ int main()
         l += strlen(s);
 
 	char x[l+1];
-	read(fd,x,l);
+	read(fd,x,10);
 	printf("from kernel to user : x = %s\n",x);
 	close(fd);
 }

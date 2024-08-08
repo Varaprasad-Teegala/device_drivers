@@ -1,6 +1,6 @@
-sudo rmmod mi_driver
+sudo rmmod my_code
 sudo dmesg -C
 make clean
 clear
 make
-sudo insmod mi_driver.ko
+sudo insmod my_code.ko
