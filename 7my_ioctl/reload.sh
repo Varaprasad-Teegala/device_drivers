@@ -1,3 +1,4 @@
+clear
 sudo rmmod my_ioctl
 make clean
 sudo dmesg -C
